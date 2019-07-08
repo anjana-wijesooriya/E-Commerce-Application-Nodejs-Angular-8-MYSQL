@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="mt-4">
+       <div class="row">
+          <div class="col-4">
+            <app-filters [productList]="productList"></app-filters>
+          </div>
+          <div class="col-8">
+
+             <!-- Card -->
+             <mdb-card class="m-0">
+                <!--Card content-->
+                <mdb-card-body>
+                   <!--Title-->
+                   <mdb-card-title>
+                        
+                   </mdb-card-title>
+
+                   <!--Text-->
+                   <mdb-card-text> 
+                        <app-product-list #productList></app-product-list>
+                   </mdb-card-text>
+                </mdb-card-body>
+             </mdb-card>
+
+             <!-- Card -->
+          </div>
+       </div>
+
+    </div>
+ </div>

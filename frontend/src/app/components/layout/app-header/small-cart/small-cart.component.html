@@ -1,0 +1,30 @@
+<div class="table-responsive">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let product of cart">
+          <th scope="row" class="border-0">
+            <div class="p-2">
+              <img [src]="'/assets/product_images/' + product.Thumbnail" alt="" width="70" class="img-fluid rounded shadow-sm">
+              <div class="ml-3 d-inline-block align-middle">
+                <h5 class="mb-0"> 
+                    <a href="#" class="text-dark d-inline-block align-middle">{{product.Name}}</a>
+                </h5>
+                <span class="text-muted font-weight-normal font-italic d-block ml-2">
+                        <span class="badge purple mr-1">{{product.DepartmentName}}</span>
+                        <span class="badge blue mr-1">{{product.CategoryName}}</span>
+                </span>
+              </div>
+            </div>
+          </th>
+          <td class="border-0 align-middle">
+                <var class="price">${{(product.Price * product.Quantity).toFixed(2)}}</var> 
+                <small class="text-muted">(${{product.Price.toFixed(2)}} each)</small> 
+          </td>
+          <td class="border-0 align-middle"><strong>{{product.Quantity}}</strong></td>
+          <td class="border-0 align-middle"><a (click)="onRemoveProductsFromCart(product.ProductId)" class="text-dark"><i class="fa fa-trash"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <li class="divider"></li>
+  <li><a class="text-center btn" [routerLink]="[ 'shopping-cart' ]"><strong>View Cart</strong></a></li>

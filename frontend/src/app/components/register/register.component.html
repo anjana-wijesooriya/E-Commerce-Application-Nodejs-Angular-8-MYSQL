@@ -1,0 +1,158 @@
+<section class="register-block">
+    <div class="container">
+            
+        <div class="row register-sec">
+            <div class="col-md-12 register-sec pb-0 pt-0">
+                    <h2 class="text-center">Register Now</h2>
+            </div>
+            <form class="register-form col-md-12" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="form-group ">
+                            <label for="FirstName" class="text-uppercase">First Name</label>
+                            <input type="text" class="form-control is-invalid" 
+                            formControlName="FirstName" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" >
+                            
+                            <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="AddressOne" class="text-uppercase">Address Line 1</label>
+                            <input type="text" class="form-control" 
+                            formControlName="AddressOne" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.AddressOne.errors }" >
+
+                            <div *ngIf="submitted && f.AddressOne.errors" class="invalid-feedback">
+                                <div *ngIf="f.AddressOne.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Town" class="text-uppercase">Town</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Town" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Town.errors }" >
+
+                             <div *ngIf="submitted && f.Town.errors" class="invalid-feedback">
+                                <div *ngIf="f.Town.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="RegionId" class="text-uppercase">Region</label>
+                            <select id="" class="form-control" 
+                            formControlName="RegionId" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.RegionId.errors }" >
+                                <option [value]="item.RegionId" *ngFor="let item of regions">{{item.Region}}</option>
+                            </select>
+
+                             <div *ngIf="submitted && f.RegionId.errors" class="invalid-feedback">
+                                <div *ngIf="f.RegionId.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Mobile" class="text-uppercase">Mobile</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Mobile" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Mobile.errors }" >
+
+                            <div *ngIf="submitted && f.Mobile.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Mobile.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Email" class="text-uppercase">Email</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Email" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" >
+
+                            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Email.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="LastName" class="text-uppercase">Last Name</label>
+                            <input type="text" class="form-control" 
+                            formControlName="LastName" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" >
+
+                            <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.LastName.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="AddressTwo" class="text-uppercase">Address Line 2</label>
+                            <input type="text" class="form-control" 
+                            formControlName="AddressTwo" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.AddressTwo.errors }">
+
+                            <div *ngIf="submitted && f.AddressTwo.errors" class="invalid-feedback">
+                                    <div *ngIf="f.AddressTwo.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Country" class="text-uppercase">Country</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Country" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Country.errors }" >
+
+                            <div *ngIf="submitted && f.Country.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Country.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ZipCode" class="text-uppercase">Post Cod/Zip</label>
+                            <input type="text" class="form-control" 
+                            formControlName="ZipCode" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.ZipCode.errors }" >
+
+                            <div *ngIf="submitted && f.ZipCode.errors" class="invalid-feedback">
+                                    <div *ngIf="f.ZipCode.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="CreditCard" class="text-uppercase">Credit Card Number</label>
+                            <input type="text" class="form-control" 
+                            formControlName="CreditCard" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.CreditCard.errors }" >
+
+                            <div *ngIf="submitted && f.CreditCard.errors" class="invalid-feedback">
+                                    <div *ngIf="f.CreditCard.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="text-uppercase">Password</label>
+                            <input type="password" class="form-control" 
+                            formControlName="Password" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" >
+
+                            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Password.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-check">
+                            <button type="button" class="btn btn-register float-right" (click)="onSubmit()">Submit</button>
+                            <button type="submit" class="btn btn-register float-right">Submita</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="col-md-8 banner-sec">
+            </div> -->
+        </div>
+    </div>
+</section>

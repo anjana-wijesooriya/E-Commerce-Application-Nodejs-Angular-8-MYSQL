@@ -1,0 +1,31 @@
+// regular style toast 
+@import '~ngx-toastr/toastr';
+
+// bootstrap style toast 
+// or import a bootstrap 4 alert styled design (SASS ONLY) 
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions 
+// @import '~bootstrap/scss/functions';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins';
+// @import '~ngx-toastr/toastr-bs4-alert';
+
+@import '../node_modules/nprogress/nprogress.css';
+
+
+.card-ecommerce{
+    .card-cascade{
+        height: 100% !important;
+    }
+}
+.toast-container{
+    top: 80px;
+    .toast-header{
+        background-color: #16a085;
+        color: #fff;
+        opacity: 0.8;
+    }
+    .toast-message{
+        width: 250px;
+        padding: 10px;
+    }
+}

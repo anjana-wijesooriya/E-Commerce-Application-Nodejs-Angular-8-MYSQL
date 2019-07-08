@@ -1,0 +1,40 @@
+<ul class="pagination pagination-circle pg-blue justify-content-center" *ngIf="count > 0">
+  <li class="page-item" 
+    [ngClass]="{ 'disabled': page === 1 || loading }"
+    (click)="onPage(1)" >
+      <a class="page-link" mdbWavesEffect>
+        First
+      </a>
+  </li>
+  <li class="page-item" 
+    (click)="onPrev()" 
+    [ngClass]="{ 'disabled': page === 1 || loading }">
+      <a class="page-link" aria-label="Previous" mdbWavesEffect>
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+  </li>
+  <li class="page-item" 
+    *ngFor="let pageNum of getPages()" 
+    (click)="onPage(pageNum)"
+    [ngClass]="{'active': pageNum === page, 'disabled': loading}">
+      <a class="page-link" mdbWavesEffect>
+          {{ pageNum }}
+      </a>
+  </li>
+  <li class="page-item" 
+    (click)="onNext(true)" 
+    [ngClass]="{ 'disabled': lastPage() || loading }">
+      <a class="page-link" aria-label="Next" mdbWavesEffect>
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+  </li>
+  <li class="page-item"
+    [ngClass]="{ 'disabled': page === totalPages() || loading }"
+    (click)="onPage(totalPages())" >
+      <a class="page-link" mdbWavesEffect>
+        Last
+      </a>
+  </li>
+</ul>

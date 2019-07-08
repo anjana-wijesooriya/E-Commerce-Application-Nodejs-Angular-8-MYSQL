@@ -1,0 +1,44 @@
+<!--Section: Products v.1-->
+<section class="text-center pb-3 mb-5 mt-1">
+    <!--Section description-->
+    <p class="grey-text pb-1 font-weight-normal font-italic">
+        We hope you have fun developing TShirtShop, the e-commerce store from begining PHP and MySQL E-commerce: from Novoice to Professional!
+        We have the largest collection of t-shirt with postal stamps on Earth! Browse our departments and categories to find your favorite!
+ 
+    </p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <a href="#">{{departmentName}}</a>
+            <a href="#" *ngIf="categoryName">&nbsp;<span class="black-text">>></span>&nbsp;{{categoryName}}</a>
+        </ol>
+        <ol class="breadcrumb search-string" *ngIf="searchString">
+            <a href="#">Product contains any of these words</a>
+            <ng-container *ngIf="allWords; else elseTemplate">
+                    <a href="#" *ngIf="searchString">&nbsp;<span class="black-text">>></span>&nbsp;{{searchString.split(' ').toString()}}</a>
+            </ng-container>
+            <ng-template #elseTemplate>
+                    <a href="#" *ngIf="searchString">&nbsp;<span class="black-text">>></span>&nbsp;{{searchString}}</a>  
+            </ng-template>
+        </ol>
+    </nav>
+          
+    <!--Grid row-->
+    <div class="row">
+        <!--Grid column-->
+        <app-product-card *ngFor="let product of productList" [productData]="product" class="col-md-4 col-sm-6 mb-3 row-eq-height"></app-product-card>
+          <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </section>
+  <nav aria-label="Page navigation example" *ngIf="PRODUCT_COUNT > 10">
+      <app-pagination
+        (goPage)="goToPage($event)"
+        (goNext)="onNext()"
+        (goPrev)="onPrev()"
+        [pagesToShow]="5"
+        [page]="CURRENT_PAGE"
+        [perPage]="PER_PAGE"
+        [count]="PRODUCT_COUNT">
+      </app-pagination>
+    </nav>
+  <!--Section: Products v.1-->
