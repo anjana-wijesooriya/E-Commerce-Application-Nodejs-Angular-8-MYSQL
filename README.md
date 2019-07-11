@@ -3,7 +3,6 @@
 Demo: -
 
 ## Stack of technologies
-<img align="right" src="./client/img/screenshots/MEAN_Stack.png" alt="MEAN Stack" height="150px">
 
 * [MY-SQL](https://www.mysql.com/);
 * [Express JS](http://expressjs.com/);
