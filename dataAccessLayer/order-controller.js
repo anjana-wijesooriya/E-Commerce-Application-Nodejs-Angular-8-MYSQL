@@ -24,10 +24,10 @@ const CreateOrder = (request, response) => {
 
         let mailOptions = {
             from: 'ajdarkslayer@gmail.com',
-            to: 'ajgihan@gmail.com',
-            subject: "Order Details", // Subject line
-            text: "Hello world?", // plain text body
-            html: `<b>Hello world? ${remark} </b>`
+            to: `${user.Email}`,
+            subject: "Congratulations! Your order placed succesfully.", // Subject line
+            text: `Hello ${user.Name}`, // plain text body
+            html: `<b>Hello  ${user.Name} </b>`
         }
         // send mail with defined transport object
         transporter.sendMail(mailOptions, function (error, info) {
@@ -37,7 +37,7 @@ const CreateOrder = (request, response) => {
             } else {
                 console.log('Email sent: ' + info.response);
 
-                let query = `INSERT INTO tshirtshop.orders
+                let query = `INSERT INTO orders
                                 (total_amount, created_on, shipped_on, status, comments, customer_id, auth_code, reference, shipping_id, tax_id)
                             VALUES
                             (
@@ -70,7 +70,7 @@ const CreateOrder = (request, response) => {
                     });
                     let rows = values.toString();
 
-                    let subQuery = `INSERT INTO tshirtshop.order_detail
+                    let subQuery = `INSERT INTO order_detail
                                         (order_id, product_id, attributes, product_name, quantity, unit_cost)
                                     values ${rows};`; //query database to get all the departments
 
