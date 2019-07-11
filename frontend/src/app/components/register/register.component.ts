@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
             .subscribe(a => {
               console.log(a);
               if(a){
-                this.router.navigate(['/login']);
+                this.router.navigate(['/customer/login']);
               }
             })
     console.log(this.registerForm.value);

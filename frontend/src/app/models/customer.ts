@@ -2,6 +2,7 @@ export class Customer {
     CustomerId: number;
     FirstName: string;
     LastName: string;
+    FullName: string;
     AddressOne: string;
     AddressTwo: string;
     Town:string;

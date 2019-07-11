@@ -1,0 +1,39 @@
+<h3 class="text-center">{{ activatedRoute._routerState.snapshot.url}}</h3>
+
+<div class="board-inner" id="status-buttons">
+    <ul class="nav nav-tabs" id="myTab">
+        <div class="liner"></div>
+
+        <!-- circular user icon -->
+        <li id="productsTab" style="margin: auto" *ngIf="activatedRoute._routerState.snapshot.url == '/checkout/review'">
+            <a [routerLink]="['/checkouts', {outlets: {'checkOutlet': ['/']}}]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }" data-toggle="tab" title="Product Summary">
+                <span class="round-tabs one">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </span>
+            </a>
+        </li>
+
+        <!-- circular customer icon -->
+        <li id="customerTab" style="margin: auto" *ngIf="activatedRoute._routerState.snapshot.url == '/checkout/customer-information'">
+            <a [routerLink]="['/checkouts', {outlets: {'checkOutlet': ['/']}}]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }" data-toggle="tab" title="Product Summary">
+                <span class="round-tabs two">
+                    <i class="fa fa-user-tie" aria-hidden="true"></i>
+                </span>
+            </a>
+        </li>
+
+        <!-- circular ok icon -->
+        <li id="resultTab" style="margin: auto" *ngIf="activatedRoute._routerState.snapshot.url == '/checkout/payment-information'">
+            <a [routerLink]="['/checkouts', {outlets: {'checkOutlet': ['result']}}]" routerLinkActive="active"
+                data-toggle="tab" title="Payment">
+                <span class="round-tabs four">
+                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                </span>
+            </a>
+        </li>
+
+    </ul>
+    <div class="clearfix"></div>
+</div>

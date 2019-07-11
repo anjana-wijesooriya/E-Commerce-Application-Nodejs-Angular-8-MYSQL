@@ -1,48 +1,49 @@
-
 <div class="product-grid grid">
-        <div class="product-image">
-            <a [routerLink]="['product-details', product.ProductId]">
-                    <img class="pic-1" [src]="'/assets/product_images/' + product.PrimaryImage">
-                    <img class="pic-2" [src]="'/assets/product_images/' + product.PrimaryImage">
-            </a>
-            <ul class="social">
-                <li><a [routerLink]="['product-details', product.ProductId]" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-            <!-- <span class="product-new-label">New</span>
+  <div class="product-image">
+    <a [routerLink]="['product-details', product.ProductId]">
+      <img class="pic-1" [src]="'/assets/product_images/' + product.PrimaryImage">
+      <img class="pic-2" [src]="'/assets/product_images/' + product.PrimaryImage">
+    </a>
+    <ul class="social">
+      <li><a [routerLink]="['product-details', product.ProductId]" data-tip="Quick View"><i class="fa fa-eye"></i></a>
+      </li>
+    </ul>
+    <!-- <span class="product-new-label">New</span>
             <span class="product-discount-label">-10%</span> -->
-        </div>
-        <div class="product-content">
-            <span class="product-shipping">{{product.DepartmentName}} - {{product.CategoryName}}</span>
-            <h3 class="title"><a href="#"><strong>
-                    {{product.Name}}
-            </strong></a></h3>
-            <div class="price">
-                $14.40
-                <span>$16.00</span>
-            </div>
-            
-            <div class="row">
-                    <div class="col-md-6 py-1 px-1">
-                      <strong>
-                          Size
-                      </strong>
-                      <select class="browser-default custom-select">
-                        <option [value]="item.AttributeId" *ngFor="let item of product.Size">{{item.AttributeValue}}</option>
-                      </select>
-            
-                    </div>
-                    <div class="col-md-6 py-1 px-1">
-                      <strong>
-                          Colour
-                      </strong>
-                      <select class="browser-default custom-select">
-                          <option [value]="item.AttributeId" *ngFor="let item of product.Color">{{item.AttributeValue}}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- <button class="add-to-cart" (click)="onAddProductToCart()">ADD TO CART</button> -->
-                  <app-add-to-cart [productId]="product.ProductId" [colorId]="colorId" [sizeId]="sizeId" [isHomePage]="true"></app-add-to-cart>
-        </div>
+  </div>
+  <div class="product-content">
+    <span class="product-shipping">{{product.DepartmentName}} - {{product.CategoryName}}</span>
+    <h3 class="title">
+      <a [routerLink]="['product-details', product.ProductId]"><strong>
+          {{product.Name}}
+        </strong>
+      </a>
+    </h3>
+    <div class="price">
+      {{product.Price}}
     </div>
+
+    <div class="row">
+      <div class="col-md-6 py-1 px-1">
+        <strong>
+          Size
+        </strong>
+        <select class="browser-default custom-select">
+          <option [value]="item.AttributeId" *ngFor="let item of product.Size">{{item.AttributeValue}}</option>
+        </select>
+
+      </div>
+      <div class="col-md-6 py-1 px-1">
+        <strong>
+          Colour
+        </strong>
+        <select class="browser-default custom-select">
+          <option [value]="item.AttributeId" *ngFor="let item of product.Color">{{item.AttributeValue}}</option>
+        </select>
+      </div>
+    </div>
+    <!-- <button class="add-to-cart" (click)="onAddProductToCart()">ADD TO CART</button> -->
+    <app-add-to-cart [productId]="product.ProductId" [colorId]="colorId" [sizeId]="sizeId" [isHomePage]="true">
+    </app-add-to-cart>
+  </div>
+</div>

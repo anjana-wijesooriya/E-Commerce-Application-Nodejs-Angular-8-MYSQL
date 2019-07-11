@@ -15,4 +15,13 @@ export class CustomerService {
     return this.http.post<boolean>(`${this.url}customer/addNewCustomer`, customer);
   }
 
+  Login(username: string, password: string): Observable<Customer>{
+    return this.http.post<Customer>(`${this.url}customer/authenticateLogin`, {Username: username, Password: password});
+  }
+
+  Logout(){
+    let result = this.http.get(`${this.url}customer/logout`);
+    return result;
+  }
+
 }

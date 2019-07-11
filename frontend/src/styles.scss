@@ -11,7 +11,9 @@
 
 @import '../node_modules/nprogress/nprogress.css';
 
-
+body{
+    height: 100vh;
+}
 .card-ecommerce{
     .card-cascade{
         height: 100% !important;

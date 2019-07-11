@@ -1,0 +1,57 @@
+<div class="container mt-3">
+    <div class="col-md order-md-1">
+        <h4 class="mb-3">Billing Address</h4>
+        <form class="needs-validation" #userDetailsForm="ngForm">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName">Full name</label>
+                    <input type="text" readonly class="form-control" id="" [(ngModel)]="customerInfor.FullName"
+                        name="firstName">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="email">Email
+                    </label>
+                    <input type="email" class="form-control" id="" [(ngModel)]="customerInfor.Email" name="email"
+                        readonly>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="" placeholder="1234 Main St"
+                    [(ngModel)]="customerInfor.AddressOne" name="address1" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="address2">Address 2
+                </label>
+                <input type="text" class="form-control" id="" placeholder="Apartment or suite"
+                    [(ngModel)]="customerInfor.AddressTwo" name="address2" readonly>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="" placeholder="Country"
+                        [(ngModel)]="customerInfor.Country" name="address2" readonly>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" id="" placeholder="City or Town"
+                        [(ngModel)]="customerInfor.Town" name="address2" readonly>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="" placeholder="ZipCode"
+                        [(ngModel)]="customerInfor.ZipCode" name="address2" readonly>
+                </div>
+            </div>
+            <hr class="mb-4">
+
+        </form>
+    </div>
+    <div class="float-right">
+            <a class="btn btn-success " [routerLink]="['/checkout/payment-information']"
+                >Next</a>
+        </div>
+</div>

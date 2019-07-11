@@ -1,0 +1,66 @@
+<div class="row mt-2 mb-3">
+    <div class="col-md-12">
+        <div class="card ">
+            <div class="card-header">
+                <h3 class="text-xs-center">
+                    <strong>Cart summary</strong>
+                    <!-- <app-paypal-checkout [totalAmount]="400" class="float-right"></app-paypal-checkout> -->
+                </h3>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <td><strong>Item Name</strong></td>
+                                <td class="text-xs-center"><strong>Item Price</strong></td>
+                                <td class="text-xs-center"><strong>Item Quantity</strong></td>
+                                <td class="text-xs-right"><strong>Total</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of checkoutProducts">
+                                <td>{{item.Name}}</td>
+                                <td class="text-xs-center">${{item.Price}}</td>
+                                <td class="text-xs-center">{{item.Quantity}}</td>
+                                <td class="text-xs-right">${{item.Price * item.Quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td class="highrow"></td>
+                                <td class="highrow"></td>
+                                <td class="highrow text-xs-center"></td>
+                                <td class="highrow text-xs-right"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row pb-5 px-4 bg-white shadow-sm w-100">
+                            <div class="col-lg-6">
+                                <div class="bg-light px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
+                                <div class="p-4">
+                                    <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below
+                                    </p>
+                                    <textarea name="" cols="30" rows="2" class="form-control" [(ngModel)]="remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="pr-4 pl-4-0">
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal
+                                            </strong><strong>${{totalPrice.toFixed(2)}}</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and
+                                                handling</strong><strong>$0.00</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                                            <h5 class="font-weight-bold">${{totalPrice.toFixed(2)}}</h5>
+                                        </li>
+                                    </ul>
+                                    <app-paypal-checkout [comments]="remark" [totalAmount]="totalPrice.toFixed(2)" class="w-100"></app-paypal-checkout>
+                                    <!-- <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a> -->
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

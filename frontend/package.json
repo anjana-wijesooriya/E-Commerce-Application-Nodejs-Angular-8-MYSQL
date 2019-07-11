@@ -57,6 +57,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "method-override": "^3.0.0",
+    "ngx-paypal": "^5.0.0",
     "ngx-toastr": "^10.0.4",
     "nprogress": "^0.2.0",
     "protractor": "~5.4.0",

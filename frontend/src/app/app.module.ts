@@ -17,12 +17,21 @@ import { ProductCardComponent } from './components/home/product-list/product-car
 import { PaginationComponent } from './components/shared/pagination/pagination.component';
 import { AddToCartComponent } from './components/shared/add-to-cart/add-to-cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule, NgbToastModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbToastModule} from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPayPalModule } from 'ngx-paypal';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { SmallCartComponent } from './components/layout/app-header/small-cart/small-cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PaypalCheckoutComponent } from './components/checkout/payment-info/paypal-checkout/paypal-checkout.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { AccountComponent } from './components/account/account.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutNavbarComponent } from './components/checkout/checkout-navbar/checkout-navbar.component';
+import { ReviewComponent } from './components/checkout/review/review.component';
+import { CustomerInfoComponent } from './components/checkout/customer-info/customer-info.component';
+import { PaymentInfoComponent } from './components/checkout/payment-info/payment-info.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +48,15 @@ import { RegisterComponent } from './components/register/register.component';
     ShoppingCartComponent,
     SmallCartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PaypalCheckoutComponent,
+    OrderConfirmationComponent,
+    AccountComponent,
+    CheckoutComponent,
+    CheckoutNavbarComponent,
+    ReviewComponent,
+    CustomerInfoComponent,
+    PaymentInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +67,8 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbToastModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPayPalModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

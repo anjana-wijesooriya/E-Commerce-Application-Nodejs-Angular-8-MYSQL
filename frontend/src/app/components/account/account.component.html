@@ -1,0 +1,44 @@
+<br>
+<br>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <li class="list-group-item hoverable">
+                    <a href="#">Your Profile</a>
+                </li>
+                <li class="list-group-item hoverable">
+                    <a href="#">Your Wishlist</a>
+                </li>
+                <li class="list-group-item hoverable">
+                    <a href="#">Your Cart</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8">
+            <form>
+                <div class="row">
+                    <img src="https://angular-shoppingcart.firebaseapp.com/assets/img/malecostume-512.png" [alt]="loggedUser.FullName"
+                        style="width: 35%; height: 35%;">
+                    <div class="col-md-8 mt-3">
+                        <label for="userName">Name</label>
+                        <p style="font-size: 15px;">{{loggedUser.FullName}}</p>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="emailId">Email</label>
+                        <p style="font-size: 15px;">{{loggedUser.Email}}</p>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="emailId">Mobile</label>
+                        <p style="font-size: 15px;">{{loggedUser.Mobile}}</p>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label for="emailId">Country</label>
+                        <p style="font-size: 15px;">{{loggedUser.Country}}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
