@@ -21,7 +21,7 @@ const RegisterCustomer = (request, response) => {
         firebase.auth()
                 .createUserWithEmailAndPassword(params.Email, params.Password)
                 .then(function(res){
-                    let query = `INSERT INTO tshirtshop.customer
+                    let query = `INSERT INTO customer
                     (address_1, address_2, city, country, credit_card, day_phone, email, eve_phone, mob_phone, name, password, postal_code, region, shipping_region_id)
                     values
                     (
@@ -78,7 +78,7 @@ const AuthenticateLogin = (request, response) => {
                     A.name AS 'FullName',
                     A.postal_code AS 'ZipCode',
                     A.shipping_region_id AS 'RegionId'
-                    FROM  tshirtshop.customer A
+                    FROM  customer A
                     WHERE A.email = '${params.Username}';`; // query database to get all the  Shipping Regions
 
                 // execute query
