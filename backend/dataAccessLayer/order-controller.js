@@ -100,7 +100,7 @@ const SendTestMail = async ()=> {
         service: 'gmail',
             auth: {
                 user: 'ajdarkslayer@gmail.com',
-                pass: 'Anjana@123'
+                pass: 'Anjana@123' 
             }
     });
 
