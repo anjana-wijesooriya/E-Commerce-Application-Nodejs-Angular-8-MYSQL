@@ -16,7 +16,7 @@ const connectionData = {
     host: 'us-cdbr-iron-east-02.cleardb.net',
     user: 'b22789322cfb92',
     password: 'b7499b6f',
-    database: 'heroku_fb4bfcaea035c93', // FYI export the tshirtshop.sql to this database
+    database: 'heroku_fb4bfcaea035c93',  // FYI export the tshirtshop.sql to this database
     multipleStatements: true
 }
 const db = mysql.createConnection (connectionData);
