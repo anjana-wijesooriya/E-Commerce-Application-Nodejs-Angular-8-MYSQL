@@ -27,7 +27,7 @@ db.connect((err) => {
     if (err) {
         throw err;
     }
-    console.log(`Connected to database ${connectionData.host} >> ${connectionData.heroku_fb4bfcaea035c93}`);
+    console.log(`Connected to database ${connectionData.host} >> ${connectionData.database}`);
 });
 global.db = db;
 
@@ -53,6 +53,12 @@ const productRoutes = require('./routes/product');
 const shippingRoutes = require('./routes/shipping');
 const customerRoutes = require('./routes/customer');
 const orderRoutes = require('./routes/order');
+
+app.get('/', function (request, response, next) {
+    db.all("SELECT * FROM category", function (error, rows) {
+        return response.json(rows);
+    });
+});
 
 // set routes to api
 app.use('/api/department', departmentRoutes);
