@@ -9,17 +9,17 @@ const CreateOrder = (request, response) => {
         const totalAmount = request.body.TotalAmount;
 
         const transporter = nodemailer.createTransport({
-            // service: 'gmail',
-            // auth: {
-            //     user: 'ajdarkslayer@gmail.com',
-            //     pass: 'Anjana@123'
-            // }
-            host: 'smtp.ethereal.email',
-            port: 587,
+            service: 'gmail',
             auth: {
-                user: 'rebeka.dietrich54@ethereal.email',
-                pass: 'eUN3GvKdfRgFseD4X8'
+                user: 'ajdarkslayer@gmail.com',
+                pass: 'Anjana@123'
             }
+            // host: 'smtp.ethereal.email',
+            // port: 587,
+            // auth: {
+            //     user: 'rebeka.dietrich54@ethereal.email',
+            //     pass: 'eUN3GvKdfRgFseD4X8'
+            // }
         });
 
         let mailOptions = {
@@ -97,13 +97,11 @@ const SendTestMail = async ()=> {
 
      // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: testAccount.user, // generated ethereal user
-            pass: testAccount.pass // generated ethereal password
-        }
+        service: 'gmail',
+            auth: {
+                user: 'ajdarkslayer@gmail.com',
+                pass: 'Anjana@123'
+            }
     });
 
     // const transporter = nodemailer.createTransport({
