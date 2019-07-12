@@ -1,4 +1,4 @@
-const nodemailer = require('../node_modules/nodemailer');
+const nodemailer = require('nodemailer');
 
 const CreateOrder = (request, response) => {
     try {
