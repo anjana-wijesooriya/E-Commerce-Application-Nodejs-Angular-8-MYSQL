@@ -12,13 +12,14 @@ const port = 5000;
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 //mysql://ba9565c7d6951a:5230e113@us-cdbr-iron-east-02.cleardb.net/heroku_f254459ae2fc71b?reconnect=true 
-const db = mysql.createConnection ({
+const connectionData = {
     host: 'us-cdbr-iron-east-02.cleardb.net',
     user: 'b22789322cfb92',
     password: 'b7499b6f',
     database: 'heroku_fb4bfcaea035c93', // FYI export the tshirtshop.sql to this database
     multipleStatements: true
-});
+}
+const db = mysql.createConnection (connectionData);
 
 
 // connect to database
@@ -26,7 +27,7 @@ db.connect((err) => {
     if (err) {
         throw err;
     }
-    console.log('Connected to database');
+    console.log(`Connected to database ${connectionData.host} >> ${connectionData.heroku_fb4bfcaea035c93}`);
 });
 global.db = db;
 

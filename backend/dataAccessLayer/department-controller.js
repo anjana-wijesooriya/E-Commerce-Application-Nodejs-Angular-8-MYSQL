@@ -1,6 +1,7 @@
 
 const GetDepartments = (request, response) => {
     try {
+        console.log(1)
         let query = `SELECT 
                         A.department_id AS 'DepartmentId',
                         A.name AS 'Name',
@@ -10,11 +11,13 @@ const GetDepartments = (request, response) => {
 
         // execute query
         db.query(query, (err, result) => {
+            console.log(2)
             if (err != null) response.status(500).send({ error: error.message });
 
             return response.json(result);
        });
     } catch (error) {
+        console.log(2)
         if (error != null) response.status(500).send({ error: error.message });
     }
 }
