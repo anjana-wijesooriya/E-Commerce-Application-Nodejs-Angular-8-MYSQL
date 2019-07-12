@@ -21,4 +21,4 @@ const shipping = {
     GetShippingRegions
 };
 
-module.exports = shipping;
+module.exports = shipping; 
