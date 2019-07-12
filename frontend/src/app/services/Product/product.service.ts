@@ -9,7 +9,7 @@ import { ProductPaginData } from 'src/app/models/product-pagin-data';
   providedIn: 'root'
 })
 export class ProductService {
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   geProductByDepartmentId(paging: Paging): Observable<Product[]>{

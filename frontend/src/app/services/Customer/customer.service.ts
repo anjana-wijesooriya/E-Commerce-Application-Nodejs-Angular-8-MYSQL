@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   AddNewCustomer(customer: Customer): Observable<boolean> {

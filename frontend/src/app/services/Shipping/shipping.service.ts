@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ShippingService {
 
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   getShippingRegions(): Observable<ShippingRegion[]>{

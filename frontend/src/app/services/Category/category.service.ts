@@ -7,7 +7,7 @@ import { Category } from 'src/app/models/Category';
   providedIn: 'root'
 })
 export class CategoryService {
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<Category[]>{

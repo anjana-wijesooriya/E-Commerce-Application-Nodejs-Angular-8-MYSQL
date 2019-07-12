@@ -7,7 +7,7 @@ import { OrderDetail } from 'src/app/models/order-detail';
 })
 export class CheckoutService {
 
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   CreatePaypalTransacton(orderDetail: OrderDetail){

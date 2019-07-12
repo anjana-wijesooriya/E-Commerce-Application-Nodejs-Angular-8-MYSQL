@@ -7,7 +7,7 @@ import { Department } from 'src/app/models/department';
   providedIn: 'root'
 })
 export class DepartmentService {
-  url = 'http://localhost:5000/api/';
+  url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
   getDepartments(): Observable<Department[]> {
