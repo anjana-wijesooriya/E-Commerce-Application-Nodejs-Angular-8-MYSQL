@@ -19,7 +19,8 @@
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "req-flash": "0.0.3",
-    "sequelize": "^5.9.0"
+    "sequelize": "^5.9.0",
+    "nodemailer": "^6.2.1"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",
