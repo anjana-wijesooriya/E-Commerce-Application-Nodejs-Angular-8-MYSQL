@@ -133,7 +133,7 @@ const GetFilteredProducts = (request, response) => {
                         C.department_id AS 'DepartmentId',
                         D.name AS 'DepartmentName',
                         C.name AS 'CategoryName'
-                    FROM tshirtshop.product P, tshirtshop.category C, tshirtshop.department D, tshirtshop.product_category PC
+                    FROM product P, category C, department D, product_category PC
                     WHERE P.product_id = PC.product_id 
                         AND C.category_id = PC.category_id
                         AND C.department_id = D.department_id
@@ -142,7 +142,7 @@ const GetFilteredProducts = (request, response) => {
                     LIMIT ${request.body.paging.PageNumber}, ${request.body.paging.PageSize};`; // query database to get all the departments
 
         let productCountQuery = `SELECT COUNT(P.product_id) AS 'ProductCount'
-                                FROM tshirtshop.product P, tshirtshop.category C, tshirtshop.department D, tshirtshop.product_category PC
+                                FROM product P, category C, department D, product_category PC
                                 WHERE P.product_id = PC.product_id 
                                     AND C.category_id = PC.category_id
                                     AND C.department_id = D.department_id
@@ -151,7 +151,7 @@ const GetFilteredProducts = (request, response) => {
         // execute query
         db.query(query + productCountQuery, [1, 2], (err, result) => {
            if (err != null){
-            response.status(500).send({ error: err.message });
+            return response.status(500).send({ error: err.message });
            }
             let resultSet = {
                Products: result[0], 
@@ -173,10 +173,10 @@ const GetFilteredProducts = (request, response) => {
                 AV.attribute_value_id AS 'AttributeValueId',
                 AV.value AS 'AttributeValue',
                 PA.product_id AS 'ProductId'
-            FROM tshirtshop.attribute_value AV
-            INNER JOIN tshirtshop.attribute A
+            FROM attribute_value AV
+            INNER JOIN attribute A
                     ON AV.attribute_id = A.attribute_id
-            INNER JOIN tshirtshop.product_attribute PA
+            INNER JOIN product_attribute PA
                     ON PA.attribute_value_id = AV.attribute_value_id
             WHERE AV.attribute_value_id IN
                     (SELECT attribute_value_id
@@ -223,10 +223,10 @@ const GetProductDetailsById = (request, response) => {
                         D.name AS 'DepartmentName',
                         C.name AS 'CategoryName'
                     FROM 
-                        tshirtshop.product P, 
-                        tshirtshop.category C, 
-                        tshirtshop.department D, 
-                        tshirtshop.product_category PC
+                        product P, 
+                        category C, 
+                        department D, 
+                        product_category PC
                     WHERE P.product_id = PC.product_id 
                     AND C.category_id = PC.category_id
                     AND C.department_id = D.department_id
@@ -244,10 +244,10 @@ const GetProductDetailsById = (request, response) => {
                             AV.attribute_value_id AS 'AttributeValueId',
                             AV.value AS 'AttributeValue',
                             PA.product_id AS 'ProductId'
-                        FROM tshirtshop.attribute_value AV
-                        INNER JOIN tshirtshop.attribute A
+                        FROM attribute_value AV
+                        INNER JOIN attribute A
                                 ON AV.attribute_id = A.attribute_id
-                        INNER JOIN tshirtshop.product_attribute PA
+                        INNER JOIN product_attribute PA
                                 ON PA.attribute_value_id = AV.attribute_value_id
                         WHERE PA.product_id = ${request.query.productId}
                         ORDER BY A.name`;
