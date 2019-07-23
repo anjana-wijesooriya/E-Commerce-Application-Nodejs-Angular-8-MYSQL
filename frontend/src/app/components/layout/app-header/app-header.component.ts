@@ -20,14 +20,18 @@ export class AppHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.count.subscribe(count => this.itemCount = count);
-    this.user = JSON.parse(localStorage.getItem('user'));
+    if(localStorage.getItem('user') == 'undefined'){
+      this.user = null;
+    } else {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
     this.isLogged = this.user != null;
   }
 
   onLogout(){
     this.customerService.Logout().subscribe(a => {
       localStorage.removeItem('user');
-      this.user = JSON.parse(localStorage.getItem('user'));
+      this.user = (localStorage.getItem('user') == 'undefined') ? null : JSON.parse(localStorage.getItem('user'));
       this.isLogged = this.user != null;
       window.location.reload();
     });

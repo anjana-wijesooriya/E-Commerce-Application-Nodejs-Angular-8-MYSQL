@@ -12,24 +12,51 @@ const port = process.env.PORT || 8080;
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 //mysql://ba9565c7d6951a:5230e113@us-cdbr-iron-east-02.cleardb.net/heroku_f254459ae2fc71b?reconnect=true 
-const connectionData = {
+const db_config = {
     host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'b22789322cfb92',
-    password: 'b7499b6f',
+    user: 'b22789322cfb92', // your database username
+    password: 'b7499b6f', // your database password
     database: 'heroku_fb4bfcaea035c93',  // FYI export the tshirtshop.sql to this database
     multipleStatements: true
 }
-const db = mysql.createConnection (connectionData);
+
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config); // Recreate the connection, since
+                                                  // the old one cannot be reused.
+
+  connection.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000);                                               
+    }    
+    /*
+        We introduce a delay before attempting to reconnect,
+        to avoid a hot loop, and to allow our node script to
+        process asynchronous requests in the meantime.
+        If you're also serving http, display a 503 error.
+    */                                                                            
+    global.db = connection;
+    console.log(`Connected to database ${db_config.host} >> ${db_config.database}`);    
+  });                                                                                   
+                                          
+  
+  /*
+    Connection to the MySQL server is usually
+    lost due to either server restart, or a
+    connnection idle timeout (the wait_timeout
+    server variable configures this)
+  */
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    handleDisconnect();    
+  });
+}
+
+handleDisconnect();
 
 
-// connect to database
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log(`Connected to database ${connectionData.host} >> ${connectionData.database}`);
-});
-global.db = db;
 
 // configure middleware
 app.set('port', process.env.port || port); // set express to use this port

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
   constructor(){
-    const serverURL = 'https://turing-tshirtshop-by-anjana.herokuapp.com/api/';
+    const serverURL = 'https://turing-backend-v2.herokuapp.com/api/';
     localStorage.setItem('ServerUrl', serverURL);
   }
 }
