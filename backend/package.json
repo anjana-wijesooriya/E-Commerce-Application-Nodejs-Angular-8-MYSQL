@@ -20,12 +20,12 @@
     "mysql2": "^1.6.5",
     "req-flash": "0.0.3",
     "sequelize": "^5.9.0",
-    "nodemailer": "^6.2.1"
+    "nodemailer": "^6.4.16"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",
     "nodejs-nodemailer-outlook": "^1.1.0",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.4.16",
     "nodemon": "^1.19.1",
     "sendmail": "^1.6.1"
   }
