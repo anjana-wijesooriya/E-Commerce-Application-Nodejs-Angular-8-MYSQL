@@ -27,7 +27,7 @@
     "@types/chart.js": "^2.7.54",
     "angular-bootstrap-md": "^7.5.4",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.5.0",
+    "chart.js": "^2.9.4",
     "eva-icons": "^1.1.1",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
